@@ -1,4 +1,4 @@
-# slack-auto-notice
+# slack-auto-notice-app
 
 _hello slack_
 リモートワークするときの状況共有をうまくサボるために、、、。
