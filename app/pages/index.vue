@@ -1,17 +1,18 @@
 <template lang="html">
   <div class="page">
     <h1>Hello! Slack.</h1>
-    <input v-model="presets.username">
-    <div class="btn" @click="post('on')">
+    <p>store: {{$store.state}}</p>
+    <input id="username" :value="$store.state.username" @input="update">
+    <div class="btn" @click="$store.commit('postWebHook', 'on')">
       I'm on it!
     </div>
-    <div class="btn" @click="post('off')">
+    <div class="btn" @click="$store.commit('postWebHook', 'off')">
       I'm off.
     </div>
-    <div class="btn" @click="post('break')">
+    <div class="btn" @click="$store.commit('postWebHook', 'break')">
       Take a break.
     </div>
-    <div class="btn" @click="post('back')">
+    <div class="btn" @click="$store.commit('postWebHook', 'back')">
       I'm back.
     </div>
   </div>
@@ -19,32 +20,13 @@
 
 <script>
 export default {
-  data() {
-    return {
-      presets: {
-        channel: '#_bell',
-        username: 'webhookおじさん[テスト]',
-        icon_url:
-          // 'https://ca.slack-edge.com/TC0EDG8CT-UC02CRL01-4030692a978b-512',
-          'https://ca.slack-edge.com/TC0EDG8CT-UC02CRL01-4030692a978b-48',
-        text: {
-          on: "Hello! I'm on it.",
-          off: "I'm off, see you.",
-          break: 'Take a break.',
-          back: "I'm back.",
-        },
-      },
-    }
-  },
   methods: {
-    post(status) {
-      this.$axios.post(
-        'https://hooks.slack.com/services/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',
-        JSON.stringify({
-          ...this.presets,
-          text: this.presets.text[status],
-        })
-      )
+    update(e) {
+      const nextState = {
+        key: e.srcElement.id,
+        value: e.target.value,
+      }
+      this.$store.commit('update', nextState)
     },
   },
 }
