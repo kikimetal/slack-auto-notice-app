@@ -60,4 +60,9 @@ module.exports = {
       }
     },
   },
+  /*
+  ** Read axios module automaticaly
+  */
+  modules: ['@nuxtjs/axios'],
+  axios: {},
 }
