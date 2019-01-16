@@ -55,7 +55,11 @@ export default {
   font-family: helvetica, sans-serif;
   background: #000;
   color: #eee;
-  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   text-align: center;
   display: flex;
   flex-flow: column;
