@@ -60,6 +60,12 @@ module.exports = {
       }
     },
   },
+  plugins: [
+    /**
+     * use local strage
+     */
+    { src: '~plugins/persistedstate.js', ssr: false },
+  ],
   /*
   ** Read axios module automaticaly
   */
