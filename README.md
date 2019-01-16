@@ -1,23 +1,12 @@
 # slack-auto-notice
 
-> 
+_hello slack_
+リモートワークするときの状況共有をうまくサボるために、、、。
 
-## Build Setup
+### Slack の Incoming Webhooks を使い倒す
 
-``` bash
-# install dependencies
-$ npm install # Or yarn install
+https://qiita.com/ik-fib/items/b4a502d173a22b3947a0
 
-# serve with hot reload at localhost:3000
-$ npm run dev
+### nuxt.js を使う時に localStorage で store を永続化する
 
-# build for production and launch server
-$ npm run build
-$ npm start
-
-# generate static project
-$ npm run generate
-```
-
-For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).
-
+https://qiita.com/sakapun/items/a0cf5698751ae70c8088
