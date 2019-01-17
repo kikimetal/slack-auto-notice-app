@@ -25,15 +25,17 @@ const createStore = () => {
         state.messages[nextState.key] = nextState.value
       },
       postWebHook(state, nextStatus) {
-        this.$axios.post(
-          state.slackWebHookUrl,
-          JSON.stringify({
-            channel: state.channel,
-            username: state.username,
-            icon_url: state.icon_url,
-            text: state.messages[nextStatus],
-          })
-        )
+        this.$axios
+          .post(
+            state.slackWebHookURL,
+            JSON.stringify({
+              channel: state.channel,
+              username: state.username,
+              icon_url: state.icon_url,
+              text: state.messages[nextStatus],
+            })
+          )
+          .then(res => console.log(res))
       },
     },
   })
