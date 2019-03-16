@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 const createStore = () => {
   return new Vuex.Store({
     state: () => ({
-      slackWebHookUrl:
+      slackWebHookURL:
         'https://hooks.slack.com/services/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',
       channel: '#_bell',
       username: 'webhookおじさん',
@@ -21,16 +21,21 @@ const createStore = () => {
       update(state, nextState) {
         state[nextState.key] = nextState.value
       },
+      updateMessage(state, nextState) {
+        state.messages[nextState.key] = nextState.value
+      },
       postWebHook(state, nextStatus) {
-        this.$axios.post(
-          state.slackWebHookUrl,
-          JSON.stringify({
-            channel: state.channel,
-            username: state.username,
-            icon_url: state.icon_url,
-            text: state.messages[nextStatus],
-          })
-        )
+        this.$axios
+          .post(
+            state.slackWebHookURL,
+            JSON.stringify({
+              channel: state.channel,
+              username: state.username,
+              icon_url: state.icon_url,
+              text: state.messages[nextStatus],
+            })
+          )
+          .then(res => console.log(res))
       },
     },
   })
